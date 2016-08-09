@@ -1,0 +1,40 @@
+\documentclass{beamer}
+
+\input{head/pkgs}
+\input{head/defs}
+\input{head/glossaries}
+
+%% EPFL beamer theme
+\usetheme{epfl}
+
+%% Theme uses ETH blue color by default. Can be changed to any color using this command: 
+\setbeamercolor{structure}{fg=red}
+
+%% Mandatory variables
+\author{Katie Jones}
+\title{Distributed model predictive control of compressor systems}
+\date{10 August 2016}
+
+%% Optional variables
+\supervisors{Alireza Karimi (EPFL),
+Andrea Cortinovis (ABB),
+Mehmet Mercangöz (ABB)}
+\projecttype{Master's Thesis}
+
+\begin{document}
+\frame{\maketitle}
+
+\begin{frame}{Overview}
+  \begin{multicols}{2}
+	\tableofcontents
+\end{multicols}
+\end{frame}
+
+\include{intro/intro}
+\include{modelling/modelling}
+\include{mpc/mpc}
+\include{results/results}
+\include{conclusion/conclusion}
+
+\end{document}
+
