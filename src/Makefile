@@ -11,6 +11,7 @@ PDF_OUTPUT = $(SOURCE:$(SRCDIR)/%.tex=$(AUXDIR)/%.pdf)
 
 TEXFILES = $(shell find $(SRCDIR) -name "*.tex")
 GLOSSARIESFILES = $(wildcard $(AUXDIR)/*glo)
+CLSFILES = $(shell find $(SRCDIR) -name "*.sty")
 
 SUBDIRS := $(sort $(dir $(wildcard $(SRCDIR)/*/)))
 AUXSUBDIRS := $(SUBDIRS:$(SRCDIR)/%=$(AUXDIR)/%)
@@ -28,7 +29,7 @@ all: $(TARGET)
 $(TARGET): $(PDF_OUTPUT)
 	cp "$(PDF_OUTPUT)" "$(TARGET)"
 
-$(PDF_OUTPUT): $(IMGFILES) $(TEXFILES) | $(AUXSUBDIRS)
+$(PDF_OUTPUT): $(IMGFILES) $(TEXFILES) $(CLSFILES) | $(AUXSUBDIRS)
 	@latexmk -bibtex -outdir=$(AUXDIR) $(notdir $(SOURCE))
 
 $(AUXSUBDIRS):

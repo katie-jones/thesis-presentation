@@ -37,27 +37,19 @@
 \setbeamertemplate{background canvas}[vertical shading][bottom=white,top=white]
 
 \setbeamertemplate{footline}{
-  \hspace{0.02\paperwidth}
-  \includegraphics[height=2em,valign=b]{epfl.pdf}
-  \hfill \parbox{0.5\textwidth}{\hfill\insertauthor~~|~~\@date~~|~~\insertframenumber \hspace{0.02\paperwidth}
-  \vspace{0.01\paperwidth}}
+  \centering
+  \parbox{\linewidth}{
+    \insertauthor~~|~~\insertdate
+    \hfill
+    {\usebeamercolor[fg]{page number in head/foot}\insertframenumber}~/~\inserttotalframenumber}\\
 }
 
 
 \setbeamertemplate{title page}{
   \usebeamercolor{title page}
-  \begin{tikzpicture}[overlay,remember picture]
-    \coordinate (content-bl) at ($(topleft) - 0.90*(0,\the\paperheight)$);
-    {
-      \usebeamercolor[bg]{title page}
-      \fill (bottominsideleft |- bottomleft) rectangle (bottominsideright |- content-bl);
-    }
-  \end{tikzpicture}
-  \begin{tikzpicture}[remember picture]
-    \useasboundingbox (0,0) rectangle ++($0.92*(\the\paperwidth,0) - 0.25*(0,\the\paperheight)$);
-    \node[inner sep=0pt,below] (titlepic) at ($0.5*(bottomleft) + 0.5*(bottomright)$) {\includegraphics[width=0.92\paperwidth,trim={0mm 45mm 0mm 36mm},clip]{title.jpg}};
-    \useasboundingbox (titlepic.north west) rectangle (titlepic.south east);
-  \end{tikzpicture}
+  \includegraphics[height=0.1\paperheight]{ABB_logo_small.png}
+  \hfill
+  \includegraphics[height=0.1\paperheight]{epfl.pdf}\\
   %% Title
   \newlength{\oldparskip}
   \setlength{\oldparskip}{\parskip}
@@ -67,38 +59,71 @@
     \ifx\insertsubtitle\@empty%
     \else%
     \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par
-    \fi%  
-  }   
+    \fi%
+  }
   %% Author
   {\usebeamercolor{author}\usebeamerfont{author}\insertauthor}\par
   %% Type of project
   \vfill
-  \ifx\@projecttype\@empty\else
-  {\usebeamercolor{institute}\usebeamerfont{institute}\@projecttype}\\
-  \fi
+  \ifdefempty{\@projecttype}{}{
+  {\usebeamercolor{institute}\usebeamerfont{institute}\@projecttype}}
+  \ifdefempty{\insertinstitute}{}{
+    {\usebeamercolor{institute}\usebeamerfont{institute}\insertinstitute}\\}
   {\usebeamercolor{institute}\usebeamerfont{institute}\@supervisor}
   %% Date
-  % {\usebeamercolor{date}\usebeamerfont{date} \insertdate}
+  \vfill
+  {\usebeamercolor{date}\usebeamerfont{date} \insertdate}
   \setlength{\parskip}{\oldparskip}
 }
 
-\setbeamertemplate{headline}{
-  \centering
-  \begin{tikzpicture}[remember picture]
-    \useasboundingbox (0,\the\paperheight) rectangle ++($(\the\paperwidth,0) - 0.1*(0,\the\paperwidth)$);
-    \coordinate (topleft) at ($(0,\the\paperheight) + 0.02*(\the\paperwidth,-\the\paperwidth)$);
-    \coordinate (bottomright) at ($(\the\paperwidth,\the\paperheight)-0.02*(\the\paperwidth,\the\paperwidth) - 0.05*(0,\the\paperwidth)$);
-    \coordinate (bottomleft) at (topleft |- bottomright); 
-    {\usebeamercolor[bg]{title page}
-    \fill (topleft) rectangle (bottomright);
-    \fill (bottomleft) rectangle ++($0.02*(\the\paperwidth,-\the\paperwidth)$) coordinate (bottominsideleft);
-    \fill (bottomright) rectangle ++($0.02*(-\the\paperwidth,-\the\paperwidth)$) coordinate (bottominsideright);
+\newlength{\ruleheight}
+\newlength{\rulewidth}
+\setlength{\ruleheight}{0.5mm}
+\setlength{\rulewidth}{0.75\linewidth}
+
+\setbeamertemplate{title page}{
+\usebeamercolor{title page}
+  %\leavevmode
+  \includegraphics[height=0.1\paperheight]{ABB_logo_small.png}
+  \hfill
+  \includegraphics[height=0.1\paperheight]{epfl.pdf}\\[1em]
+  \raggedleft
+  %% Title
+  {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par}
+  \settowidth{\rulewidth}{\inserttitle}
+  {\hfill\usebeamercolor[bg]{title page}\rule{\rulewidth}{\ruleheight}\\[0.5em]}
+  {%% Subtitle
+    \ifx\insertsubtitle\@empty%
+    \else%
+    \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par
+    \fi%
   }
-  \node at ($0.5*(topleft) + 0.5*(bottomleft) + 0.08*(\the\paperwidth,0)$) {\includegraphics[height=0.018\paperwidth]{epfl.pdf}};
-\end{tikzpicture}
+  %% Author
+  {\usebeamercolor{author}\usebeamerfont{author}\insertauthor}\par
+  \vfill
+  %% Type of project
+  \ifdefempty{\@projecttype}{}{
+  {\usebeamercolor{institute}\usebeamerfont{institute}\@projecttype}}
+  \ifdefempty{\insertinstitute}{}{
+    {\usebeamercolor{institute}\usebeamerfont{institute}\insertinstitute}\\}
+  {\usebeamercolor{institute}\usebeamerfont{institute}\@supervisor}
+  %% Date
+  \vfill
+  {\usebeamercolor{date}\usebeamerfont{date} \insertdate}\par
+}
+
+\setbeamertemplate{headline}{
+  \vspace{1em}
+  \centering
+  \begin{minipage}{\linewidth}
+    \includegraphics[height=0.05\paperheight]{ABB_logo_small.png}
+    \hfill
+    \includegraphics[height=0.05\paperheight]{epfl.pdf}\\
+  \end{minipage}\\
 }
 
 \setbeamertemplate{frametitle}{
-  {\usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle\par}%
-  {\usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\insertframesubtitle\par}%
+  {\usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle\\}%
+  \ifdefempty{\insertframesubtitle}{}{%
+    {\usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\insertframesubtitle\par}}%
 }

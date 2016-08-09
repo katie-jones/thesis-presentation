@@ -28,8 +28,10 @@
 \usecolortheme[named=ETHlightblue]{structure}
 
 \setbeamercolor{normal text}{fg=black, bg=}
-\setbeamercolor{title}{fg=white}
-\setbeamercolor{title page}{fg=white,bg=structure}
+\setbeamercolor{title}{fg=black}
+\setbeamercolor{author}{fg=structure}
+\setbeamercolor{title page}{fg=black,bg=structure}
+\setbeamercolor{page number in head/foot}{fg=structure}
 
 
 
@@ -38,8 +40,8 @@
 \fi
 
 \if@titlesblack
-\setbeamercolor{frametitle}{fg=black}
+\setbeamercolor{frametitle}{fg=black,bg=structure}
 \setbeamercolor{framesubtitle}{fg=gray}
 \else
-\setbeamercolor{framesubtitle}{fg=ETHlightblue!70!white}
+\setbeamercolor{framesubtitle}{fg=structure!70!white,bg=black}
 \fi
