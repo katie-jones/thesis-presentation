@@ -73,7 +73,7 @@
 \end{frame}
 
 \subsection{Distributed MPC}
-\begin{frame}{Distributed MPC}
+\begin{frame}{DMPC Formulation}
   \begin{itemize}
     \item One sub-controller for each compressor
       \small
@@ -105,29 +105,50 @@
   % What extra terms does it have?
 \end{frame}
 
-\begin{frame}{Algorithm}
-  \begin{figure}[H]
+\begin{frame}{DMPC Algorithm}
     \centering
-    \includegraphics[width=.5\linewidth]{figures/algorithm.pdf}
-  \end{figure}
-  How does distributed MPC differ from centralized?\\
-  How is the cost function set up differently?\\
-  What extra terms does it have?
+    \includegraphics[width=.6\linewidth]{figures/algorithm.pdf}
+    Two types of DMPC controller
+      \begin{itemize}
+        \item Cooperative controller: common cost function (weight outputs from both compressors)
+        \item Non-cooperative controller: individual cost functions (weight outputs from single compressor)
+      \end{itemize}
 \end{frame}
+
 
 \subsection{Implementation}
-\begin{frame}{State Estimation}
-  How are states estimated?\\
-  Why a static observer matrix?
-\end{frame}
+\begin{frame}{Implementation}
+  \structure{General}
+  \begin{itemize}
+    \item Use Dormand-Prince (\texttt{ode45}) algorithm for simulation
+     \item Perform state estimation using static observer
+  \end{itemize}
 
-\begin{frame}{Simulink}
-  How is the Simulink model set up?\\
-  Advantages/disadvantages
-\end{frame}
+  \structure{Simulink}
+  \begin{itemize}
+    \item Use \emlab{} to implement MPC controllers
+    \item Set up for C code generation, for deployment on embedded hardware
+  \end{itemize}
 
-\begin{frame}{C++}
-  How is the C++ model set up?\\
-  Computational speed advantages?
+  \structure{\cpp{}}
+  \begin{itemize}
+    \item Linear algebra performed with \eigen{} library
+    \item Use knowledge of augmented matrices to speed up QP generation (store dense and sparse sections of matrix separately)
+  \end{itemize}
+
 \end{frame}
+% \begin{frame}{State Estimation}
+  % How are states estimated?\\
+  % Why a static observer matrix?
+% \end{frame}
+
+% \begin{frame}{Simulink}
+  % How is the Simulink model set up?\\
+  % Advantages/disadvantages
+% \end{frame}
+
+% \begin{frame}{C++}
+  % How is the C++ model set up?\\
+  % Computational speed advantages?
+% \end{frame}
 

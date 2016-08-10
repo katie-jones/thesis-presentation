@@ -1,0 +1,51 @@
+  \togglefalse{compleg}
+  \togglefalse{complabel}
+  \resizebox{0.8\linewidth}{!}{%
+    \begin{tikzpicture}
+      % draw first compressor
+      \renewcommand{\glsgraphcmd}[1]{\glsentryuseri{#1}}
+      \drawcomp
+
+      % Draw second compressor shifted
+      \begin{scope}[yscale=1,xscale=-1,shift={(-25,0)}]
+      \renewcommand{\glsgraphcmd}[1]{\glsentryuserii{#1}}
+        \drawcomp
+      \end{scope}
+
+      % Increase size of bounding box
+      \useasboundingbox ($(current bounding box.south east) - (0,2)$) rectangle (current bounding box.north west |- 0,17);
+
+    \end{tikzpicture}
+  }
+  \footnotesize
+  \renewcommand{\arrowthick}{2pt}
+  \begin{tikzpicture}[scale=0.6,transform shape,overlay]
+    \node[rectangle,draw=tankcolor,line width=\tankthick,minimum width=3.5cm,minimum height=2.5cm,align=center] (ctank) at (-8.0,7.5) {Common\\Tank\\\statetext{\glsgraph{pt}}};
+
+    % Coordinates
+    \coordinate (ovalve) at ($(ctank.north) + (0,\valvewidth) + (0,1)$);
+
+    % Draw common tank and valve
+    \drawvalve[rotate=90, transform shape]{ovalve}{0.4}
+    \node[below, rotate=90, transform shape, align=center] at ($(ovalve)+(\valveheight,0)$) {Common\\Tank Valve};
+
+    % Draw flow arrows
+    \drawflow[<-]{($(ovalve)-(0,\valvewidth)-(0,0.5*\valvethick)$)}{($(ovalve |- ctank.north east) + (0, 0.5*\tankthick)$)}
+    \drawflow[->]{($(ovalve)+(0,\valvewidth)+(0,0.5*\valvethick)$)}{+(0,1)}
+
+    % Label valve
+    \draw[<-,draw=inputcolor,line width=2pt] ($(ovalve)-(2*\valveheight,0)$) -- ++(-1,0) node[below right]{\inputtext{\glsgraph{ut}}};
+
+    % Legend
+    \drawlegend{($(ovalve)+(3.5,0)$)}
+
+    % Label boundary conditions
+    \node at ($(ovalve)+(0,2)$) {\bctext{\glsgraph{pa}}};
+    \node at ($(ctank)+(6.5,0.4)$) {\bctext{\glsgraph{pa}}};
+    \node at ($(ctank)+(-6.5,0.4)$) {\bctext{\glsgraph{pa}}};
+
+    % Label individual compressors
+    \node[align=center] at ($(ctank)-(3,5.5)$) {Compressor 1};
+    \node[align=center] at ($(ctank)+(3,-5.5)$) {Compressor 2};
+
+  \end{tikzpicture}
