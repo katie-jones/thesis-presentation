@@ -21,6 +21,8 @@
 \DeclareOption{titlesblue}{\def\titlecolor{titlesblue}}
 \ProcessOptions
 
+\newif\ifprintsectiontitle\printsectiontitletrue
+
 \usecolortheme[\itemcolor,\titlecolor]{epfl}
 \usefonttheme{epfl}
 
@@ -126,7 +128,12 @@
 }
 
 \setbeamertemplate{frametitle}{
-  {\usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle\\}%
+  \ifprintsectiontitle%
+    {\usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertsection: \insertframetitle\\}%
+  \else%
+    {\usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle\\}%
+  \fi
   \ifdefempty{\insertframesubtitle}{}{%
-    {\usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\insertframesubtitle\par}}%
+    {\usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\insertframesubtitle\par}%
+  }%
 }

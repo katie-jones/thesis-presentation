@@ -1,20 +1,38 @@
+\printsectiontitlefalse
 \section{Conclusion}
-\subsection{Future Work}
+\begin{frame}{Conclusion}
+    Distributed MPC can \alert{reduce computational cost}\\
+      \begin{itemize}
+        \item Cooperative control: minimal reduction
+        \item Non-cooperative: significant reduction (fewer outputs $\implies$ faster QP generation)
+        \item QP generation has larger effect than QP solver
+      \end{itemize}
+      \vfill
+
+    \ldots but \alert{performance is decreased} in some cases\\
+      \begin{itemize}
+        \item Cooperative control very similar to centralized
+        \item Non-cooperative control shows reduced ASC performance in serial case
+      \end{itemize}
+\end{frame}
 
 \begin{frame}{Future Work}
   \begin{itemize}
-    \item Experimental tests
-    \item Reduce number of states for prediction matrix generation
-    \item Scale up to larger compressor networks
+    \item Improve computational efficiency
+      \begin{itemize}
+        \item Reduce number of states for prediction matrix generation
+        \item Use more efficient linear algebra implementation
+      \end{itemize}
     \item Investigate convergence of non-cooperative controller
-    \item Use more efficient linear algebra implementation
+      \begin{itemize}
+        \item Effect of noise/model mismatch
+        \item Effect of model parameters (tank sizes etc.)
+      \end{itemize}
+    \item Experimental tests
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Conclusions}
-  DMPC can improve computational cost\\
-  Non-cooperative control much better, particularly for larger systems\\
-  Performance can be impacted, particularly for highly coupled systems
+\begin{frame}[plain]{}
+  \centering\LARGE\bfseries
+  Questions?
 \end{frame}
-
-

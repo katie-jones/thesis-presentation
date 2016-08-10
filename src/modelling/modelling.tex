@@ -1,11 +1,25 @@
-\section{Modelling \& Simulation}
+\section{Modelling}
 
 \subsection{Single Compressor}
 \begin{frame}{Compressor Model}
-  What model is used for the compressor?\\
-  Where does it come from?\\
-  What are the significant non-linearities?\\
-  Inputs/outputs/states
+  \begin{minipage}{0.6\linewidth}
+    \resizebox{\linewidth}{!}{
+      \begin{tikzpicture}
+        \drawcomp
+      \end{tikzpicture}
+    }
+  \end{minipage}
+  \begin{minipage}{0.38\linewidth}
+  \begin{itemize}
+    \item Atmospheric pressure at boundary
+    \item Controlled inputs: \g{ur} and \g{torque}
+    \item Outputs: \g{sd} and \g{pd}
+  \end{itemize}
+\end{minipage}
+  % What model is used for the compressor?\\
+  % Where does it come from?\\
+  % What are the significant non-linearities?\\
+  % Inputs/outputs/states
 \end{frame}
 
 \begin{frame}{Surge Distance}
@@ -25,11 +39,5 @@
   Overview of system\\
   Assumptions made\\
   Inputs/outputs/states
-\end{frame}
-
-\subsection{Simulation}
-\begin{frame}{Simulation}
-  Simulink parameters\\
-  C++ parameters
 \end{frame}
 
