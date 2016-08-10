@@ -25,14 +25,24 @@ Mehmet Mercangöz (ABB)}}
 
 \institute[Control \& Optimization Group]{}
 
+\AtBeginSection[]{
+  \begin{frame}{Overview}
+    \makebox[\linewidth][c]{%
+      \begin{minipage}[t][4cm][t]{\textwidth}
+  \begin{multicols}{2}
+    \tableofcontents[currentsection,
+    currentsubsection,
+  subsectionstyle=show/show/shaded,
+sectionstyle=show/shaded]
+  \end{multicols}
+
+              \end{minipage}%
+                }%
+\end{frame}
+}
+
 \begin{document}
 \frame[plain,noframenumbering]{\maketitle}
-
-\begin{frame}{Overview}
-  \begin{multicols}{2}
-	\tableofcontents
-\end{multicols}
-\end{frame}
 
 \include{intro/intro}
 \include{modelling/modelling}
