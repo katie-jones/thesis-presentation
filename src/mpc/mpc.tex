@@ -73,7 +73,7 @@
 \end{frame}
 
 \subsection{Distributed MPC}
-\begin{frame}{DMPC Formulation}
+\begin{frame}{DMPC}
   \begin{itemize}
     \item One sub-controller for each compressor
       \small
@@ -89,6 +89,11 @@
       \end{equation*}
       \normalsize
     \item Iterate, exchanging solution info between sub-controllers, to converge to optimal solution
+    \item Two types of DMPC controller
+      \begin{itemize}
+        \item Cooperative controller: common cost function (weight outputs from both compressors)
+        \item Non-cooperative controller: individual cost functions (weight outputs from single compressor)
+      \end{itemize}
   \end{itemize}
 
 % \begin{equation}
@@ -108,11 +113,6 @@
 \begin{frame}{DMPC Algorithm}
     \centering
     \includegraphics[width=.6\linewidth]{figures/algorithm.pdf}
-    Two types of DMPC controller
-      \begin{itemize}
-        \item Cooperative controller: common cost function (weight outputs from both compressors)
-        \item Non-cooperative controller: individual cost functions (weight outputs from single compressor)
-      \end{itemize}
 \end{frame}
 
 
