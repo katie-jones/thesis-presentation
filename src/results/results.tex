@@ -2,25 +2,131 @@
 
 \subsection{Control Performance}
 \begin{frame}{Control Performance}{Parallel System}
-  How does performance of DMPC compare to centralized?\\
-  What differences are observable?
+  {\centering
+    \resizebox{!}{0.4\textheight}{
+      \begin{minipage}{\linewidth}
+        \begin{minipage}{0.48\linewidth}
+          \input{results/figs/parallel_p.tex}
+        \end{minipage}
+        \hspace{0.2em}
+        \begin{minipage}{0.48\linewidth}
+          \input{results/figs/parallel_sd.tex}
+        \end{minipage}
+        \\
+        \begin{minipage}{0.48\linewidth}
+          \input{results/figs/parallel_td.tex}
+        \end{minipage}
+        \hspace{0.2em}
+        \begin{minipage}{0.48\linewidth}
+          \input{results/figs/parallel_ur.tex}
+        \end{minipage}
+      \end{minipage}
+    }\\
+    \alert{Control performance identical for DMPC}\\
+  }
+
+  % How does performance of DMPC compare to centralized?\\
+  % What differences are observable?
 \end{frame}
 
-\begin{frame}{Control Performance}{Serial System}
-  How does performance of DMPC compare to centralized?\\
-  What differences are observable?\\
-  Set up slide with compressor 1, slide with compressor 2, and slide with relevant plots from each
+\begin{frame}[plain]{Control Performance}{Serial System}
+  \resizebox{0.48\linewidth}{!}{
+    \begin{minipage}{\linewidth}
+      {\centering\textbf{Compressor 1}\\}
+      \begin{minipage}{0.48\linewidth}
+        \input{results/figs/serial_p1.tex}
+      \end{minipage}
+      % \hspace{0.2em}
+      \begin{minipage}{0.48\linewidth}
+        \input{results/figs/serial_sd1.tex}
+      \end{minipage}
+      \\
+      \begin{minipage}{0.48\linewidth}
+        \input{results/figs/serial_td1.tex}
+      \end{minipage}
+      \hspace{0.2em}
+      \begin{minipage}{0.48\linewidth}
+        \input{results/figs/serial_ur1.tex}
+      \end{minipage}
+    \end{minipage}
+  }
+  \resizebox{0.48\linewidth}{!}{
+    \begin{minipage}{\linewidth}
+      {\centering\textbf{Compressor 2}\\}
+      \begin{minipage}{0.48\linewidth}
+        \input{results/figs/serial_p2.tex}
+      \end{minipage}
+      % \hspace{0.2em}
+      \begin{minipage}{0.48\linewidth}
+        \input{results/figs/serial_sd2.tex}
+      \end{minipage}
+      \\
+      \begin{minipage}{0.48\linewidth}
+        \input{results/figs/serial_td2.tex}
+      \end{minipage}
+      \hspace{0.2em}
+      \begin{minipage}{0.48\linewidth}
+        \input{results/figs/serial_ur2.tex}
+      \end{minipage}
+    \end{minipage}
+  }\\
+  \centering
+  \resizebox{0.48\linewidth}{!}{
+    \begin{minipage}{0.48\linewidth}
+      \input{results/figs/serial_sd1_zoom.tex}
+    \end{minipage}
+    \begin{minipage}{0.48\linewidth}
+      \input{results/figs/serial_sd2_zoom.tex}
+    \end{minipage}
+  }
+  \begin{minipage}{0.48\linewidth}
+    \begin{itemize}
+      \item Cooperative performance similar to centralized
+      % \item Non-cooperative has smaller initial torque response $\implies$ lower peak surge distance
+      \item \alert{Non-cooperative has poorer anti-surge control performance}
+    \end{itemize}
+  \end{minipage}
+
+  % How does performance of DMPC compare to centralized?\\
+  % What differences are observable?\\
+  % Set up slide with compressor 1, slide with compressor 2, and slide with relevant plots from each
 \end{frame}
 
 \subsection{Computational Performance}
 \begin{frame}{Computational Performance}{Parallel System}
-  How does performance of DMPC compare to centralized?\\
-  What differences are observable?
-\end{frame}
-
-\begin{frame}{Computational Performance}{Serial System}
-  How does performance of DMPC compare to centralized?\\
-  How much is computational cost improved by using DMPC?
+  {
+    \centering
+    \resizebox{!}{0.3\textheight}{
+      \begin{minipage}{\linewidth}
+        \begin{minipage}{\linewidth}
+          \input{results/figs/parallel_computation_cost.tex}
+        \end{minipage}
+        \\
+        \begin{minipage}{\linewidth}
+          \input{results/figs/serial_computation_cost.tex}
+        \end{minipage}
+      \end{minipage}
+    }
+    \resizebox{!}{0.3\textheight}{
+      \begin{minipage}{\linewidth}
+        \begin{minipage}{\linewidth}
+          \input{results/figs/parallel_qp_cost.tex}
+        \end{minipage}
+        \\
+        \begin{minipage}{\linewidth}
+          \input{results/figs/serial_qp_cost.tex}
+        \end{minipage}
+      \end{minipage}
+    }
+    \\
+  }
+  {
+    \centering
+    Most time used for QP generation ($< 10\%$ for QP solving)\\
+    \alert{Non-cooperative approach better to reduce computation time}\\
+  }
+  % How does performance of DMPC compare to centralized?\\
+  % What differences are observable?
 \end{frame}
 
 
