@@ -117,6 +117,18 @@
   {\usebeamercolor{date}\usebeamerfont{date} \insertdate}\par
 }
 
+\newlength{\widthofcurrentsection}
+\setbeamertemplate{section in head/foot}{
+  \settowidth{\widthofcurrentsection}{\insertsectionhead\quad}
+  \begin{beamercolorbox}[center,dp=0.5ex,ht=2ex,wd=\widthofcurrentsection]{section in head/foot} 
+    \usebeamercolor[fg]{section in head/foot}\usebeamerfont{section in head/foot}\insertsectionhead
+  \end{beamercolorbox}
+}
+
+\setbeamertemplate{section in head/foot shaded}{
+  \usebeamerfont{section in head/foot shaded}\usebeamercolor[fg]{section in head/foot shaded}\insertsectionhead
+}
+
 \setbeamertemplate{headline}{
   \vspace{1em}
   \centering
@@ -125,15 +137,21 @@
     \hfill
     \includegraphics[height=0.05\paperheight]{epfl.pdf}\\
   \end{minipage}\\
+      % \insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
+      % \begin{beamercolorbox}[center]{subsection in head/foot}
+        % \insertsubsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
+      % \end{beamercolorbox}
 }
+
 
 \setbeamertemplate{frametitle}{
   \ifprintsectiontitle%
-    {\usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertsection: \insertframetitle\\}%
+    {\usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertsection: \insertsubsection\\}%
+    {\usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\insertframetitle\par}%
   \else%
     {\usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle\\}%
-  \fi
   \ifdefempty{\insertframesubtitle}{}{%
     {\usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\insertframesubtitle\par}%
   }%
+  \fi
 }

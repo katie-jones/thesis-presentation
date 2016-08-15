@@ -2,7 +2,7 @@
 
 \subsection{Compressor Systems}
 
-\begin{frame}{Compressor Systems}
+\begin{frame}{Industrial Applications}
   \begin{itemize}
     \item Used often in natural gas installations
     \item Very energy-intensive process
@@ -24,8 +24,36 @@
   \alert{\centering Increasing control performance can significantly reduce costs\\}
 \end{frame}
 
+\begin{frame}{Compressor Dynamics}
+  \begin{minipage}{0.6\linewidth}
+    \resizebox{\linewidth}{!}{
+      \begin{tikzpicture}
+        \drawcomp
+      \end{tikzpicture}
+    }
+  \end{minipage}
+  \begin{minipage}{0.38\linewidth}
+  \begin{itemize}
+    \item Atmospheric pressure at boundary
+    \item Controlled inputs: \g{ur} and \g{torque}
+    \item Outputs: \g{sd} and \g{pd}
+    \item Disturbances: \g{us} and \g{ud}
+  \end{itemize}
+\end{minipage}
+  % What model is used for the compressor?\\
+  % Where does it come from?\\
+  % What are the significant non-linearities?\\
+  % Inputs/outputs/states
+\end{frame}
+
+\begin{frame}{Surge Distance}
+    \centering
+    \includegraphics[width=.5\linewidth]{figures/surge.pdf}
+\end{frame}
+
+
 \subsection{Conventional Control}
-\begin{frame}{Conventional Control}
+\begin{frame}{~}
   % What does conventional control look like?\\
   % What are the upsides?\\
   % What are the downsides?\\
@@ -42,7 +70,7 @@
 \end{frame}
 
 \subsection{MPC Approaches}
-\begin{frame}{Model Predictive Control}
+\begin{frame}{~}
 
   {\usebeamercolor[fg]{structure}\bfseries Advantages:\\}
   \begin{itemize}
@@ -71,13 +99,13 @@
 \end{frame}
 
 \printsectiontitlefalse
-\begin{frame}{Overview}
-  \begin{multicols}{2}
-    \tableofcontents[%currentsection,
-    %currentsubsection,
-  subsectionstyle=shaded/shaded/show,
-sectionstyle=shaded/show]
-  \end{multicols}
-\end{frame}
+% \begin{frame}{Overview}
+  % \begin{multicols}{2}
+    % \tableofcontents[%currentsection,
+    % %currentsubsection,
+  % subsectionstyle=shaded/shaded/show,
+% sectionstyle=shaded/show]
+  % \end{multicols}
+% \end{frame}
 \printsectiontitletrue
 

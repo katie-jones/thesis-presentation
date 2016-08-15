@@ -1,7 +1,48 @@
-\section{MPC Formulation}
+\section{MPC}
 
 \subsection{Overview}
-\begin{frame}{Overview}
+
+\begin{frame}{Control Approaches}
+  % \centering
+
+  \textbf{3 control approaches used:}
+  \begin{itemize}
+    \item Centralized control: used as benchmark
+    \item Distributed control: split controller into two subcontrollers
+      \begin{itemize}
+        \item Cooperative control: single cost function
+        \item Non-cooperative control: individual cost functions
+      \end{itemize}
+  \end{itemize}
+  \vspace{1em}
+
+  \textbf{Outputs controlled:} ({\color{ETHpurple} all 3}, {\color{ETHlightblue} centralized/cooperative})
+  \begin{itemize}
+    \item Parallel system: {\color{ETHpurple} \g{pt}, \gi{sd},} {\color{ETHlightblue} \gii{sd}}
+      % \begin{itemize}
+        % \item Centralized/Cooperative: \g{pt}, \gi{sd}, \gii{sd}
+        % \item Non-cooperative: \g{pt}, \gi{sd}
+      % \end{itemize}
+    \item Serial system: {\color{ETHpurple} \gi{pd}, \gi{sd},} {\color{ETHlightblue} \gii{pd}, \gii{sd}}
+      % \begin{itemize}
+        % \item Centralized/Cooperative: \gi{pd}, \gii{pd}, \gi{sd}, \gii{sd}
+        % \item Non-cooperative: \gi{pd}, \gi{sd}
+      % \end{itemize}
+  \end{itemize}
+
+
+\end{frame}
+
+
+
+\begin{frame}{Algorithm}
+    \centering
+    \includegraphics[width=.6\linewidth]{figures/algorithm.pdf}
+\end{frame}
+
+
+\subsection{Formulation}
+\begin{frame}{~}
   \begin{itemize}
     \item \alert{Quadratic} cost function
       \begin{equation*}
@@ -72,8 +113,7 @@
   % What type of solver is used?
 \end{frame}
 
-\subsection{Distributed MPC}
-\begin{frame}{DMPC}
+\begin{frame}{Distributed MPC}
   \begin{itemize}
     \item One sub-controller for each compressor
       \small
@@ -110,14 +150,9 @@
   % What extra terms does it have?
 \end{frame}
 
-\begin{frame}{DMPC Algorithm}
-    \centering
-    \includegraphics[width=.6\linewidth]{figures/algorithm.pdf}
-\end{frame}
-
 
 \subsection{Implementation}
-\begin{frame}{Implementation}
+\begin{frame}{~}
   \structure{General}
   \begin{itemize}
     \item Use Dormand-Prince (\texttt{ode45}) algorithm for simulation

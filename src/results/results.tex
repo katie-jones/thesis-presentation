@@ -1,9 +1,9 @@
 \section{Results}
 
 \subsection{Control Performance}
-\begin{frame}{Control Performance}{Parallel System}
-  {\centering
-    \resizebox{!}{0.4\textheight}{
+\begin{frame}{Parallel System}
+  \begin{center}
+    \resizebox{0.6\textwidth}{!}{
       \begin{minipage}{\linewidth}
         \begin{minipage}{0.48\linewidth}
           \input{results/figs/parallel_p.tex}
@@ -23,13 +23,14 @@
       \end{minipage}
     }\\
     \alert{Control performance identical for DMPC}\\
-  }
+  \end{center}
+
 
   % How does performance of DMPC compare to centralized?\\
   % What differences are observable?
 \end{frame}
 
-\begin{frame}[plain]{Control Performance}{Serial System}
+\begin{frame}[plain]{Serial System}
   \resizebox{0.48\linewidth}{!}{
     \begin{minipage}{\linewidth}
       {\centering\textbf{Compressor 1}\\}
@@ -93,10 +94,10 @@
 \end{frame}
 
 \subsection{Computational Performance}
-\begin{frame}{Computational Performance}{Parallel System}
-  {
-    \centering
-    \resizebox{!}{0.3\textheight}{
+\begin{frame}{~}
+  \vspace{-3em}
+  \begin{center}
+    \resizebox{!}{0.35\textheight}{
       \begin{minipage}{\linewidth}
         \begin{minipage}{\linewidth}
           \input{results/figs/parallel_computation_cost.tex}
@@ -107,7 +108,7 @@
         \end{minipage}
       \end{minipage}
     }
-    \resizebox{!}{0.3\textheight}{
+    \resizebox{!}{0.35\textheight}{
       \begin{minipage}{\linewidth}
         \begin{minipage}{\linewidth}
           \input{results/figs/parallel_qp_cost.tex}
@@ -119,12 +120,10 @@
       \end{minipage}
     }
     \\
-  }
-  {
-    \centering
     Most time used for QP generation ($< 10\%$ for QP solving)\\
     \alert{Non-cooperative approach better to reduce computation time}\\
-  }
+  \end{center}
+
   % How does performance of DMPC compare to centralized?\\
   % What differences are observable?
 \end{frame}
